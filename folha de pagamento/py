@@ -1,0 +1,61 @@
+masculino = 0
+feminino = 0
+
+maior_liquido = 0
+menor_liquido = 0
+
+maior_masculino = 0
+maior_feminino = 0
+
+for i in range(10):
+
+    salario = float(input("Digite o salário bruto: R$ "))
+    genero = input("Digite o gênero (M/F): ").upper()
+
+    inss = salario * 0.11
+    fgts = salario * 0.05
+
+    salario_liquido = salario - inss - fgts
+
+    if salario_liquido < 7298.97:
+        vale = 729.87
+    else:
+        vale = 499.78
+
+    total = salario_liquido + vale
+
+    print("\n--- Funcionário", i + 1, "---")
+    print("Salário líquido: R$", round(salario_liquido, 2))
+    print("Vale alimentação: R$", round(vale, 2))
+    print("Salário líquido + vale: R$", round(total, 2))
+
+    if genero == "M":
+        masculino += 1
+
+        if salario_liquido > maior_masculino:
+            maior_masculino = salario_liquido
+
+    elif genero == "F":
+        feminino += 1
+
+        if salario_liquido > maior_feminino:
+            maior_feminino = salario_liquido
+
+    if i == 0:
+        maior_liquido = salario_liquido
+        menor_liquido = salario_liquido
+    else:
+        if salario_liquido > maior_liquido:
+            maior_liquido = salario_liquido
+
+        if salario_liquido < menor_liquido:
+            menor_liquido = salario_liquido
+
+
+print("\n===== RESULTADO FINAL =====")
+print("Funcionários masculinos:", masculino)
+print("Funcionários femininos:", feminino)
+print("Maior salário líquido: R$", round(maior_liquido, 2))
+print("Menor salário líquido: R$", round(menor_liquido, 2))
+print("Maior salário líquido masculino: R$", round(maior_masculino, 2))
+print("Maior salário líquido feminino: R$", round(maior_feminino, 2))
