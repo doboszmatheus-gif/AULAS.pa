@@ -1,0 +1,105 @@
+programa
+{
+    funcao inicio()
+    {
+        cadeia nomes[10]
+        real salarios[10]
+        cadeia generos[10]
+
+        real resultados[10][3]
+
+        inteiro masculino = 0
+        inteiro feminino = 0
+
+        real maior_liquido
+        real menor_liquido
+        real maior_masculino = 0
+        real maior_feminino = 0
+
+
+        para (inteiro i = 0; i < 10; i++)
+        {
+            escreva("Digite o nome: ")
+            leia(nomes[i])
+
+            escreva("Digite o salário bruto: R$ ")
+            leia(salarios[i])
+
+            escreva("Digite o gênero (M/F): ")
+            leia(generos[i])
+        }
+
+
+        para (inteiro i = 0; i < 10; i++)
+        {
+
+            resultados[i][0] = salarios[i] - (salarios[i] * 0.11) - (salarios[i] * 0.05)
+
+            se (resultados[i][0] < 7298.97)
+            {
+                resultados[i][1] = 729.87
+            }
+            senao
+            {
+                resultados[i][1] = 499.78
+            }
+
+            resultados[i][2] = resultados[i][0] + resultados[i][1]
+        }
+
+
+        maior_liquido = resultados[0][0]
+        menor_liquido = resultados[0][0]
+
+
+        para (inteiro i = 0; i < 10; i++)
+        {
+            escreva("\n--- Funcionário ", i + 1, " ---\n")
+            escreva("Nome: ", nomes[i], "\n")
+            escreva("Salário líquido: R$ ", resultados[i][0], "\n")
+            escreva("Vale alimentação: R$ ", resultados[i][1], "\n")
+            escreva("Salário líquido + vale: R$ ", resultados[i][2], "\n")
+
+
+            se (generos[i] == "M")
+            {
+                masculino++
+
+                se (resultados[i][0] > maior_masculino)
+                {
+                    maior_masculino = resultados[i][0]
+                }
+            }
+            senao se (generos[i] == "F")
+            {
+                feminino++
+
+                se (resultados[i][0] > maior_feminino)
+                {
+                    maior_feminino = resultados[i][0]
+                }
+            }
+
+
+            se (resultados[i][0] > maior_liquido)
+            {
+                maior_liquido = resultados[i][0]
+            }
+
+
+            se (resultados[i][0] < menor_liquido)
+            {
+                menor_liquido = resultados[i][0]
+            }
+        }
+
+
+        escreva("\n===== RESULTADO FINAL =====\n")
+        escreva("Funcionários masculinos: ", masculino, "\n")
+        escreva("Funcionários femininos: ", feminino, "\n")
+        escreva("Maior salário líquido: R$ ", maior_liquido, "\n")
+        escreva("Menor salário líquido: R$ ", menor_liquido, "\n")
+        escreva("Maior salário líquido masculino: R$ ", maior_masculino, "\n")
+        escreva("Maior salário líquido feminino: R$ ", maior_feminino, "\n")
+    }
+}
