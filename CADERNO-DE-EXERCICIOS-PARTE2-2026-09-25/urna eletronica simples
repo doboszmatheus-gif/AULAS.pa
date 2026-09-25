@@ -1,0 +1,32 @@
+votos = [0] * 6
+
+while True:
+    print("\n1- João | 2- Maria | 3- José | 4- Nulo | 5- Branco | 0- Encerrar")
+    voto = int(input("Digite seu voto: "))
+
+    if voto == 0:
+        break
+    elif 1 <= voto <= 5:
+        votos[voto] += 1
+    else:
+        print("Opção inválida!")
+
+print("\n--- RESULTADO DA VOTAÇÃO ---")
+candidatos = {1: "João", 2: "Maria", 3: "José"}
+for cod, nome in candidatos.items():
+    print(f"{nome}: {votos[cod]} voto(s)")
+
+print(f"Nulos: {votos[4]}")
+print(f"Brancos: {votos[5]}")
+
+votos_candidatos = {nome: votos[cod] for cod, nome in candidatos.items()}
+max_votos = max(votos_candidatos.values())
+
+if max_votos == 0:
+    print("\nNenhum voto registrado para candidatos.")
+else:
+    vencedores = [nome for nome, v in votos_candidatos.items() if v == max_votos]
+    if len(vencedores) > 1:
+        print(f"\nEmpate entre: {', '.join(vencedores)} com {max_votos} voto(s) cada!")
+    else:
+        print(f"\nVencedor: {vencedores[0]} com {max_votos} voto(s)!")
