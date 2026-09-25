@@ -18,7 +18,7 @@ while True:
         print("Poltrona inválida! Escolha entre 0 e 9.")
     else:
         if poltronas[reserva]:
-            print("⚠️ Poltrona OCUPADA! Escolha outra.")
+            print("Poltrona OCUPADA! Escolha outra.")
         else:
             poltronas[reserva] = True
-            print("✅ Poltrona RESERVADA com sucesso!")
+            print("Poltrona RESERVADA com sucesso!")
