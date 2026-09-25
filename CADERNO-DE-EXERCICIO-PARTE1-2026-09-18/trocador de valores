@@ -1,0 +1,4 @@
+a = input("Digite o valor de A: ")
+b = input("Digite o valor de B: ")
+a, b = b, a
+print(f"Após a troca -> A: {a}, B: {b}")
