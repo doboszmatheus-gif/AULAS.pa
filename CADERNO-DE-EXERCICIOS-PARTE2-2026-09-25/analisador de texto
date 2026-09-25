@@ -1,0 +1,19 @@
+frase = input("Digite uma frase: ")
+
+palavras = 0
+em_palavra = False
+
+for char in frase:
+    if char != ' ' and not em_palavra:
+        palavras += 1
+        em_palavra = True
+    elif char == ' ':
+        em_palavra = False
+
+qtd_a = 0
+for char in frase:
+    if char == 'a' or char == 'A':
+        qtd_a += 1
+
+print(f"\nTotal de palavras: {palavras}")
+print(f"Quantidade de letras 'A'/'a': {qtd_a}")
