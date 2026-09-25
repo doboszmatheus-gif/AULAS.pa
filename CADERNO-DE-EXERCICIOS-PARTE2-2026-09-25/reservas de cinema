@@ -1,0 +1,24 @@
+poltronas = [False] * 10
+
+while True:
+    mapa = []
+    for i in range(10):
+        status = "[X]" if poltronas[i] else f"[{i}]"
+        mapa.append(status)
+    
+    print("\n--- MAPA DE ASSENTOS ---")
+    print(" ".join(mapa))
+
+    reserva = int(input("\nDigite o número da poltrona para reservar (ou número negativo para sair): "))
+
+    if reserva < 0:
+        print("Encerrando sistema de reservas.")
+        break
+    elif reserva >= 10:
+        print("Poltrona inválida! Escolha entre 0 e 9.")
+    else:
+        if poltronas[reserva]:
+            print("⚠️ Poltrona OCUPADA! Escolha outra.")
+        else:
+            poltronas[reserva] = True
+            print("✅ Poltrona RESERVADA com sucesso!")
