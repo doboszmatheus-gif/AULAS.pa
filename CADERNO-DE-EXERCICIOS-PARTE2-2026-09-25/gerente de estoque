@@ -1,0 +1,49 @@
+produtos = []
+quantidades = []
+
+while True:
+    print("\n--- GERENCIADOR DE ESTOQUE ---")
+    print("1- Adicionar Produto")
+    print("2- Dar Baixa")
+    print("3- Ver Estoque")
+    print("4- Sair")
+    opcao = input("Opção: ")
+
+    if opcao == '1':
+        nome = input("Nome do produto: ").strip().title()
+        qtde = int(input("Quantidade: "))
+        
+        if nome in produtos:
+            idx = produtos.index(nome)
+            quantidades[idx] += qtde
+        else:
+            produtos.append(nome)
+            quantidades.append(qtde)
+        print("Produto adicionado/atualizado!")
+
+    elif opcao == '2':
+        nome = input("Nome do produto para baixa: ").strip().title()
+        if nome in produtos:
+            idx = produtos.index(nome)
+            qtde_baixa = int(input("Quantidade a retirar: "))
+            if quantidades[idx] >= qtde_baixa:
+                quantidades[idx] -= qtde_baixa
+                print("Baixa realizada com sucesso!")
+            else:
+                print("Estoque insuficiente!")
+        else:
+            print("Produto não encontrado!")
+
+    elif opcao == '3':
+        print("\n--- ESTOQUE ATUAL ---")
+        if not produtos:
+            print("Estoque vazio.")
+        else:
+            for i in range(len(produtos)):
+                print(f"Produto: {produtos[i]} | Qtde: {quantidades[i]}")
+
+    elif opcao == '4':
+        print("Encerrando...")
+        break
+    else:
+        print("Opção inválida!")
