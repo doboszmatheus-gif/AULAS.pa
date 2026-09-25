@@ -1,0 +1,39 @@
+import random
+
+campo = [0] * 10
+
+minas = random.sample(range(10), 3)
+for pos in minas:
+    campo[pos] = 1
+
+passos_dados = 0
+historico_passos = []
+
+print("--- JOGO DO CAMINHO MINADO ---")
+print("O campo tem posições de 0 a 9. Existem 3 minas escondidas!")
+
+derrota = False
+while passos_dados < 5:
+    posicao = int(input(f"\nPasso {passos_dados + 1}/5 - Escolha uma posição (0-9): "))
+
+    if posicao < 0 or posicao > 9:
+        print("Posição inválida! Escolha entre 0 e 9.")
+        continue
+    if posicao in historico_passos:
+        print("Você já pisou nessa posição. Escolha outra!")
+        continue
+
+    historico_passos.append(posicao)
+
+    if campo[posicao] == 1:
+        print(f"\n💥 BUM! Você pisou em uma mina na posição {posicao}. Fim de jogo!")
+        derrota = True
+        break
+    else:
+        print("Safe! Nenhum mina aqui.")
+        passos_dados += 1
+
+if not derrota:
+    print("\n🎉 PARABÉNS! Você deu 5 passos sem pisar em nenhuma mina e VENCEU!")
+
+print(f"Posição real das minas: {minas}")
