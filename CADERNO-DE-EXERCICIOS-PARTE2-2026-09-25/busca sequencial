@@ -1,0 +1,15 @@
+import random
+
+lista = [random.randint(1, 50) for _ in range(8)]
+print(f"Lista gerada: {lista}")
+
+busca = int(input("\nDigite o número que deseja buscar: "))
+
+encontrado = False
+for i in range(len(lista)):
+    if lista[i] == busca:
+        print(f"O número {busca} foi encontrado na posição (índice) {i}.")
+        encontrado = True
+
+if not encontrado:
+    print(f"O número {busca} não está presente na lista.")
