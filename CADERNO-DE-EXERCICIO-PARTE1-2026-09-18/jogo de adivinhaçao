@@ -1,0 +1,19 @@
+import random
+
+computador = random.randint(1, 10)
+tentativas = 0
+acertou = False
+
+print("Pensei em um número entre 1 e 10. Tente adivinhar!")
+while not acertou:
+    jogador = int(input("Qual é o seu palpite? "))
+    tentativas += 1
+    if jogador == computador:
+        acertou = True
+    else:
+        if jogador < computador:
+            print("Maior... Tente novamente.")
+        else:
+            print("Menor... Tente novamente.")
+
+print(f"Parabéns! Você acertou em {tentativas} tentativas.")
