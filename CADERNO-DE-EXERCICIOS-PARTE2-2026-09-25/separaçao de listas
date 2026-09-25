@@ -1,0 +1,15 @@
+principal = []
+pares = []
+impares = []
+
+for i in range(10):
+    num = int(input(f"Digite o {i+1}º número: "))
+    principal.append(num)
+    if num % 2 == 0:
+        pares.append(num)
+    else:
+        impares.append(num)
+
+print(f"\nLista Principal: {principal}")
+print(f"Lista de Pares:  {pares}")
+print(f"Lista de Ímpares: {impares}")
