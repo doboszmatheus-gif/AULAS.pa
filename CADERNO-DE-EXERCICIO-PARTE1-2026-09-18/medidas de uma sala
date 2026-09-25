@@ -1,0 +1,5 @@
+largura = float(input("Digite a largura da sala (m): "))
+comprimento = float(input("Digite o comprimento da sala (m): "))
+area = largura * comprimento
+perimetro = 2 * (largura + comprimento)
+print(f"Área: {area:.2f} m² | Perímetro: {perimetro:.2f} m")
