@@ -1,0 +1,65 @@
+nome_titular = ""
+numero_conta = ""
+saldo = 0.0
+conta_criada = False
+
+while True:
+    print("\n=== MINI-SISTEMA BANCÁRIO ===")
+    print("1- Criar Conta")
+    print("2- Depositar")
+    print("3- Sacar")
+    print("4- Extrato/Ver Saldo")
+    print("5- Sair")
+    opcao = input("Escolha uma opção: ")
+
+    if opcao == '1':
+        if conta_criada:
+            print("Uma conta já foi criada para este sistema!")
+        else:
+            nome_titular = input("Nome do Titular: ")
+            numero_conta = input("Número da Conta: ")
+            saldo = float(input("Depósito Inicial: R$ "))
+            while saldo < 0:
+                print("O saldo inicial não pode ser negativo!")
+                saldo = float(input("Depósito Inicial: R$ "))
+            conta_criada = True
+            print("Conta criada com sucesso!")
+
+    elif opcao == '2':
+        if not conta_criada:
+            print("Erro: Crie uma conta primeiro!")
+        else:
+            valor = float(input("Valor do depósito: R$ "))
+            if valor > 0:
+                saldo += valor
+                print(f"Depósito de R$ {valor:.2f} realizado com sucesso!")
+            else:
+                print("O valor do depósito deve ser positivo.")
+
+    elif opcao == '3':
+        if not conta_criada:
+            print("Erro: Crie uma conta primeiro!")
+        else:
+            valor = float(input("Valor do saque: R$ "))
+            if valor <= 0:
+                print("O valor do saque deve ser maior que zero.")
+            elif valor > saldo:
+                print(" Operação negada: Saldo insuficiente!")
+            else:
+                saldo -= valor
+                print(f" Saque de R$ {valor:.2f} realizado com sucesso!")
+
+    elif opcao == '4':
+        if not conta_criada:
+            print("Erro: Crie uma conta primeiro!")
+        else:
+            print("\n--- EXTRATO BANCÁRIO ---")
+            print(f"Titular: {nome_titular}")
+            print(f"Conta:   {numero_conta}")
+            print(f"Saldo:   R$ {saldo:.2f}")
+
+    elif opcao == '5':
+        print("Obrigado por utilizar nosso banco. Até logo!")
+        break
+    else:
+        print("Opção inválida! Tente novamente.")
