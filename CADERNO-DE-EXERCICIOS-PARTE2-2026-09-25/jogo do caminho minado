@@ -26,7 +26,7 @@ while passos_dados < 5:
     historico_passos.append(posicao)
 
     if campo[posicao] == 1:
-        print(f"\n💥 BUM! Você pisou em uma mina na posição {posicao}. Fim de jogo!")
+        print(f"\n BUM! Você pisou em uma mina na posição {posicao}. Fim de jogo!")
         derrota = True
         break
     else:
@@ -34,6 +34,6 @@ while passos_dados < 5:
         passos_dados += 1
 
 if not derrota:
-    print("\n🎉 PARABÉNS! Você deu 5 passos sem pisar em nenhuma mina e VENCEU!")
+    print("\n PARABÉNS! Você deu 5 passos sem pisar em nenhuma mina e VENCEU!")
 
 print(f"Posição real das minas: {minas}")
