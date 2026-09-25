@@ -1,0 +1,14 @@
+valores = []
+
+for i in range(5):
+    val = input(f"Digite o {i+1}º valor: ")
+    valores.append(val)
+
+print(f"\nOrdem digitada: {valores}")
+
+# Inversão manual utilizando manipulação de índices
+invertida = []
+for i in range(len(valores) - 1, -1, -1):
+    invertida.append(valores[i])
+
+print(f"Ordem inversa:  {invertida}")
