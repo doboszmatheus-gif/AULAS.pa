@@ -1,0 +1,14 @@
+a = float(input("digite o primeiro lado:"))
+b = float(input("digite o segundo lado:"))
+c = float(input("digite o terceiro lado:"))
+
+if a + b > c and a + c > b and b + c > a:
+    print("triangulo valido -")
+    if a + b > c and a + c > b and b + c > a:
+        print("equilatero")
+    elif a == b or a == c or b == c:
+        print("isosceles")
+    else:
+        print("escaleno")
+else:
+    print("Os lados não formam um triângulo válido")
